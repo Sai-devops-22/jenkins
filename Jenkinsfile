@@ -18,19 +18,20 @@ pipeline {
                 echo "Deploying...."
             }
         }
-        post {
-            always {
-                echo "hello from always"
-                deleteDir()
-            }
+    }
 
-            success {
-                echo "hello from success"
-            }
+    post {
+        always {
+            echo "hello from always"
+            deleteDir()
+        }
 
-            failure {
-                echo "hello from failure"
-            }
+        success {
+            echo "hello from success"
+        }
+
+        failure {
+            echo "hello from failure"
         }
     }   
 }
