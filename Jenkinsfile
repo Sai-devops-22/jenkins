@@ -34,6 +34,14 @@ pipeline {
             }
         }
         stage ("Deploy") {   
+            input{
+                message "should we continue"
+                ok "yes we should"
+                submitter "bod-alice"
+                parameters{
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
             steps {
                 echo "Deploying...."
             }
