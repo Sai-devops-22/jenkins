@@ -1,3 +1,4 @@
+//PREBUILD
 pipeline {
     agent {
         label "AGENT-1"
@@ -16,6 +17,7 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password') 
     }
+    //BUILD
     stages {
         stage ("Build") {
             steps {
@@ -47,7 +49,7 @@ pipeline {
             }
         }
     }
-
+    //POST BUILD
     post {
         always {
             echo "hello from always"
